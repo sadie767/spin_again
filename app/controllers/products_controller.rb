@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
-  before_action :authorize, :except => [:index]
+  # before_action :authorize, :except => [:index]
 
   def index
     @products = Product.all
+    @order_item = current_order.order_items.new
   end
 
   def show

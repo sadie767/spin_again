@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root :to => 'products#index'
+  resource :cart, only: [:show]
 
-  resources :products do
-    resources :order_items
-  end
-end
+  resources :products
+  resources :order_items
+  resources :orders
+ end
