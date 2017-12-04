@@ -14,3 +14,16 @@
  *= require_self
  */
   @import "bootstrap";
+
+  .nav > li ,a {
+    margin: 5px;
+    color: black;
+  }
+
+  body {
+    padding: 15px;
+  }
+
+  #pad {
+    padding: 40px;
+  }
