@@ -1,6 +1,6 @@
 class OrderItem < ApplicationRecord
   belongs_to :product
-  belongs_to :account, through: :order
+  belongs_to :order
 
   validates :quantity, :presence => true
   validates :product_id, :presence => true
