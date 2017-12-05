@@ -1,16 +1,19 @@
 <h1>Spin Again Portland</h1>
-<div class="col-md-6" id="pad">
+
 <h3><%= link_to "Add a New Product", new_product_path %></h3>
 
 <h2>Our Records</h2>
+<div class="row">
   <% @products.each do |product| %>
+  <div class="col-md-4">
     <%= image_tag('joy.jpg', :width =>'150') %>
-    <li><%= link_to product.name, product_path(product)%></li>
+    <li><%= link_to product.name, product_path(product), id: 'new_product_link'%></li>
     <li><%= product.title %> | <%= number_to_currency product.price %></li>
     <%= form_for @order_item do |f| %>
       <%= f.hidden_field :product_id, value: product.id %>
       <%= f.number_field :quantity %>
       <%= f.submit "Add to cart" %>
     <% end %></p>
+  </div>
   <% end %>
 </div>
