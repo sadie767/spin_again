@@ -4,6 +4,7 @@
 
 <h2>Our Records</h2>
   <% @products.each do |product| %>
+    <%= image_tag('joy.jpg', :width =>'150') %>
     <li><%= link_to product.name, product_path(product)%></li>
     <li><%= product.title %> | <%= number_to_currency product.price %></li>
     <%= form_for @order_item do |f| %>

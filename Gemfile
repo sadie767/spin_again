@@ -33,6 +33,7 @@ gem 'devise'
 gem 'faker'
 gem 'paperclip', '~> 4.1'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'stripe'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
