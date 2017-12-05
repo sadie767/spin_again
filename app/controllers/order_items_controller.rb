@@ -8,6 +8,14 @@ class OrderItemsController < ApplicationController
     redirect_to cart_path
   end
 
+  # def edit
+  #
+  # end
+  #
+  # def update
+  #
+  # end
+
   def destroy
     @order = current_order
     @item = @order.order_items.find(params[:id])
