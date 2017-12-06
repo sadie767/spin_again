@@ -4,3 +4,8 @@
 <br>
 <br>
 <h4><%= @product.description %></h4>
+<%= form_for @order_item do |f| %>
+  <%= f.hidden_field :product_id, value: product.id %>
+  <%= f.number_field :quantity %>
+  <%= f.submit "Add to cart" %>
+<% end %></p>
