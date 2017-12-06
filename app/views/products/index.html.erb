@@ -1,14 +1,16 @@
 <h1>Spin Again Portland</h1>
-<div class="record">
-<%= image_tag('record.jpg', width: '800') %>
 <br>
+<div class="record">
+  <%= image_tag('record.jpg', height: 500) %>
 </div>
+<br>
 <h3><%= link_to "Add a New Product", new_product_path %></h3>
 
-<h2>Our Records</h2>
+<h1>Our Records</h1>
+<br>
 <div class="row">
   <% @products.each do |product| %>
-  <div class="col-md-4">
+  <div class="col-md-6">
     <%= image_tag('joy.jpg', :width =>'150') %>
     <li><%= link_to product.name, product_path(product), remote: true %></li>
     <li><%= product.title %></li>
@@ -20,6 +22,8 @@
       <%= f.submit "Add to cart" %>
       <% end %>
       </div>
+      <br>
+      <br>
     </div>
   <% end %>
 </div>
