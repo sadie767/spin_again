@@ -2,6 +2,7 @@ class ChargesController < ApplicationController
   before_action :amount_to_be_charged, :set_description
   before_action :authenticate_user!
 
+  
   def new
   end
 
@@ -15,8 +16,9 @@ class ChargesController < ApplicationController
     charge = StripeTool.create_charge(customer_id: customer.id,
                                       amount: (@amount.round) * 100,
                                       description: @description)
-
+  session[:order_id]=nil
   redirect_to thanks_path
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_charge_path

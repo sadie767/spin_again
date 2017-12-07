@@ -1,11 +1,5 @@
 class OrderItemsController < ApplicationController
 
-  # def create
-  #   @order = current_order
-  #   @item = @order.order_items.new(item_params)
-  #   @order.save
-  #   redirect_to cart_path
-  # end
 
   def create
   @order = current_order

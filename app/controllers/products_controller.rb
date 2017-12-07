@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  # before_action :authorize, :except => [:index]
+  before_action :authorize, :except => [:index]
+  before_action :authorize_admin, :only => [:new]
 
   def index
     @products = Product.all
