@@ -1,6 +1,4 @@
 class OrderItemsController < ApplicationController
-
-
   def create
   @order = current_order
   if @order.order_items.exists?(:product_id => item_params[:product_id])
@@ -18,19 +16,34 @@ class OrderItemsController < ApplicationController
       flash[:notice] = "This product has been added to your order."
     redirect_to root_path
   else
-    flash[:notice] = "There were some errors"
+    flash[:notice] = "add an item"
     redirect_to root_path
   end
 end
 
+def show
+  @order = current_order
+  @item = @order.order_items.find(params[:id])
+end
 
-  # def edit
-  #
-  # end
-  #
-  # def update
-  #
-  # end
+def edit
+  @order = current_order
+  @item = @order.order_items.find(params[:id])
+end
+
+def update
+  @order = current_order
+  @item = @order.order_items.find(params[:id])
+  if @item.update(item_params)
+    flash[:notice] = "Cart updated!"
+    respond_to do |format|
+      format.html { redirect_to cart_path }
+      format.js { render "products/show" }
+    end
+  else
+    render :edit
+  end
+end
 
   def destroy
     @order = current_order

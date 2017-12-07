@@ -2,9 +2,11 @@
 
 <% if @order_items.any? %>
   <% @order_items.each do |item| %>
-    <p><%= item.product.name %> | <%= link_to "Delete", order_item_path(item), :data => {:confirm => "You sure?", :method => "delete"} %></p>
+    <%= item.product.name %> | <%= link_to "Delete", order_item_path(item), :data => {:confirm => "You sure?", :method => "delete"} %> | <%= link_to 'Edit Cart', edit_order_item_path(item), remote: true %>
+    <%= render 'form', :item => item %>
     <p> Unit Price: <%= number_to_currency item.product.price %> | Quantity: <%= item.quantity %> | Total Price: <%= number_to_currency (item.product.price * item.quantity) %></p>
   <% end %>
+
   <p>Your Total: <%= number_to_currency current_order.total_price %></p>
 <% else %>
   <p>Your shopping cart is empty.</p>
