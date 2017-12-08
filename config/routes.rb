@@ -12,7 +12,6 @@ resources :charges
 
   resources :products
   resources :order_items
-  resource :cart
+  resource :cart, only: :show
   resources :orders
-  resources :charges
 end

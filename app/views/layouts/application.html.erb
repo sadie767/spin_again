@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Shop', '/products' %></li>
         <li><%= item_total %><%= link_to 'Item(s) in Cart', '/cart' %><li>
-        <li><%=  number_to_currency current_order.total_price %><li>
+        <li><span class="total"><%=  number_to_currency current_order.total_price %></span><li>
         <% if current_user %>
           <li><%= link_to('Edit User', edit_user_registration_path) %></li>
         <% end %>
